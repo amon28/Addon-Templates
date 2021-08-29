@@ -45,7 +45,7 @@
  		
 //---
 //custom scroll panel
-	"my_custom_container_scroll_panel_top_half@common.scrolling_panel_with_offset":{
+	"my_custom_container_scroll_panel_top_half":{
 	"type": "panel",
     "size": [ "100%", 102 ],
     "offset": [ 0, 11 ],
@@ -53,10 +53,11 @@
     "anchor_from": "top_left",	
 	"controls": [
       { "chest_label@chest.chest_label": {} },
+		//scroll panel
 	  {"scrolling_panel@common.container_scroll_panel":{
 		"offset": [ 0, 11 ],
 		"size": [ "87%", "93%" ],
-		"$scrolling_content|default": "chest.my_custom_container_grid"
+		"$scrolling_content|default": "chest.my_custom_container_grid" //use custom container grid to show
 	  }}
     ]
 	},
