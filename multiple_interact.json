@@ -1,0 +1,53 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "template:multiple_interact"
+    },
+    "components": {
+		"minecraft:block_light_absorption": 1,
+	  "minecraft:display_name": "Multiple Interact",
+      "minecraft:destroy_time": 1,
+	  "minecraft:unit_cube":{},
+	  	"minecraft:material_instances": {
+      "*": {
+   		"texture": "stone", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      }
+	  },
+	"minecraft:entity_collision": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+	},
+	  "minecraft:pick_collision": {
+      "origin": [-8, 0, -8],
+      "size": [16, 16, 16]
+	},
+	"minecraft:on_interact": {
+		"event": "interations",
+		"target": "self"
+	}
+    },
+	"events":{		
+		"interations":{
+			"sequence":[
+			{
+				"condition": "query.get_equipped_item_name(0) == 'apple'",
+				"run_command":{
+					"command": "say apple"
+				}
+			},
+			{
+				"condition": "query.get_equipped_item_name(0) == 'stick'",
+				"set_block_at_pos": {
+				"block_type": "minecraft:planks",
+				"block_offset": [0, 0, 0]
+				}
+			}
+			]
+		}
+	},
+	"permutations":[
+	]
+  }
+}
