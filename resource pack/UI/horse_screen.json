@@ -174,7 +174,11 @@
     "offset": [ 79, 18 ],
     "controls": [
 		//remove because it blocks the inventory grid
-      /**{ "inv_bg_panel@horse.inv_bg_panel": { } },*/
+		//but will make grid always visible
+      /**{ "inv_bg_panel@horse.inv_bg_panel": { 
+		"size": [ 90, 90 ]
+		} 
+	  },**/
       { 
 	  "inv_grid@chest.small_chest_grid": { 
 			"size": [ 90, 90 ],
