@@ -1,3 +1,3 @@
 # Addon-Templates
 
-# This repo for addon templates that I made
+# This repo is for addon templates that I made
