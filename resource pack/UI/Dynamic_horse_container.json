@@ -1,4 +1,5 @@
 //For some reason the slots decrease by 1 if your slots is 33 make it 34
+//The default slot of a donkey is 16 but it is 15 even in the default ui
 {
   "namespace": "chest",
 
