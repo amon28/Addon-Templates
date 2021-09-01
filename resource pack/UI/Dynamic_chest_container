@@ -1,4 +1,3 @@
-//For some reason the slots decrease by 1 if your slots is 33 make it 34
 {
   "namespace": "chest",
 
