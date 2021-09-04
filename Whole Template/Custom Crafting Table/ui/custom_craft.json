@@ -85,6 +85,7 @@
     "layer": 1,
 	"size":[180,180],
     "controls": [
+	    //this the ui image
 		{
 		"@cf.kitchen_image":{
 			"layer": 2,
