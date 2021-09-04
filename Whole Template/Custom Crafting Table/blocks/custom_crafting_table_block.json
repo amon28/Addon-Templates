@@ -1,0 +1,59 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:block": {
+    "description": {
+      "identifier": "test:test"
+    },
+    "components": {
+		"minecraft:block_light_absorption": 1,
+	  "minecraft:display_name": "test",
+      "minecraft:destroy_time": 1,
+		"minecraft:unit_cube":{},
+	  	"minecraft:material_instances" : {
+		"*": {
+      "texture": "stone",
+      "render_method" : "alpha_test"
+		}
+		},
+	"minecraft:entity_collision": true,
+	  "minecraft:pick_collision": true,
+	  "minecraft:crafting_table": {
+		"custom_description": "test", // Name shown in GUI, you will use this name in the ui
+		"grid_size": 3, // Currently only supports 3
+		"crafting_tags": ["cooking"]
+	},
+	"minecraft:material_instances": {
+      "up": {
+   		"texture": "top_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      },
+	   "bottom": {
+   		"texture": "under_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      },
+	    "south": {
+   		"texture": "side_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      },
+	    "north": {
+   		"texture": "side_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      },
+	    "west": {
+   		"texture": "side_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      },
+	    "east": {
+   		"texture": "side_cooking", // References texture defined in terrain_textures.json
+    		"render_method": "opaque" // Options 'blend', 'opaque', 'alpha_test'
+      }
+	  }
+    },
+	"events":{		
+		
+	},
+	"permutations":[
+	
+	]
+  }
+}
