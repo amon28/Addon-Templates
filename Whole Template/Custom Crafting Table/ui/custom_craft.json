@@ -191,7 +191,7 @@
 		},
 		{
 		"binding_type": "view",
-		"source_property_name": "(#crafting_label_text = 'test')", //your crafting table default name (in the behaviors)
+		"source_property_name": "(#crafting_label_text = 'test')", //your custom crafting table default name (in the behaviors)
 		"target_property_name": "#visible" 
 		}
 		]		
