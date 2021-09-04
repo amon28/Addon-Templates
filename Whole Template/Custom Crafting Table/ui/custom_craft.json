@@ -1,6 +1,12 @@
 {
   "namespace": "cf",
   
+//ui picture	
+"kitchen_image@horse.overlay_image": {
+    "texture": "textures/kitchen_ui",
+	"alpha": 1
+  },
+	
   //crafting grid
   "custom_crafting_grid_3x3": {
     "type": "grid",
@@ -80,7 +86,7 @@
 	"size":[180,180],
     "controls": [
 		{
-		"@chest.kitchen_image":{
+		"@cf.kitchen_image":{
 			"layer": 2,
 			"size":["95%",90],
 			"offset":[0,-38]
