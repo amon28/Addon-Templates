@@ -1,162 +1,320 @@
 //For some reason the slots decrease by 1, example if your slots is 33 the ui slot will be 32 so make it 34
 //The default slot of a donkey is 16 but it is 15 even in the default ui
-//This is because of the additional slot of the saddle
+//This is because of the additional slot of the saddle, and carpet if its a llama
 {
-  "namespace": "chest",
+  "namespace": "horse",
+	
+	
+  "renderer_bg": {
+    "type": "image",
+    "texture": "textures/ui/pocket_button_pressed"
+  },
 
-//chest label needed for getting the entity name
-  "chest_label": {
-    "$new_container_title|default": "$container_title",
+  "overlay_image": {
+    "type": "image",
+    "alpha": 0.5
+  },
+
+  "saddle_image@horse.overlay_image": {
+    "texture": "textures/ui/empty_horse_slot_saddle"
+  },
+  
+  "cover_bg@horse.overlay_image": {
+    "texture": "textures/gray_cover",
+	"alpha": 1
+  },
+  
+  "chest_image@horse.overlay_image": {
+    "texture": "textures/empty_horse_slot_chest"
+  },
+  
+  "upgrade_image@horse.overlay_image": {
+    "texture": "textures/empty_horse_slot_upgrade"
+  },
+
+  "armor_image@horse.overlay_image": {
+    "texture": "textures/ui/empty_horse_slot_armor"
+  },
+
+  "carpet_image@horse.overlay_image": {
+    "texture": "textures/ui/empty_llama_slot_carpet"
+  },
+	//horse label
+  "horse_label": {
+	"$new_container_title|default": "$container_title",
     "text": "$new_container_title"
-  },	
 
-  "small_chest_grid": {
-    "type": "grid",
-    "size": [ 162, 54 ],
-    "anchor_from": "top_left",
-    "anchor_to": "top_left",
-    "grid_dimensions": [ 9, 3 ],
-    "grid_item_template": "chest.chest_grid_item",
-    "collection_name": "container_items"
   },
-//custom grid container
-  "my_custom_container_grid": {
+  
+
+  "container_item@common.container_item": {
+	
+	},
+
+  "equip_grid": {
     "type": "grid",
-    "size": [ 144, 108 ],
-    "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "grid_dimensions": [ 8, 6 ], //max row 8, unless your going to change the size
-    "grid_item_template": "chest.chest_grid_item",
-    "collection_name": "container_items"
+    "anchor_from": "top_left",
+    "collection_name": "horse_equip_items",
+    "grid_item_template": "@common.container_item",
+    "grid_dimension_binding": "#equip_grid_dimensions",
+    "$item_collection_name": "horse_equip_items",
+    "bindings": [
+      {
+        "binding_name": "#equip_grid_dimensions"
+      }
+    ]
   },
-//---
-  "small_chest_panel_top_half": {
+
+  "inv_grid@common.container_grid": {	
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "layer": 3,
+    "collection_name": "container_items",
+    "grid_item_template": "@horse.container_item",   
+    "$item_collection_name": "container_items"
+  },
+
+  "inv_bg_panel": {
     "type": "panel",
-    "size": [ "100%", "50%" ],
-    "offset": [ 0, 12 ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ 90, "fill" ],
+    "layer": 2,
+    "controls": [
+      { "cell_image@common.cell_image": { } }
+    ]
+  },
+
+  "equip_panel": {
+    "type": "panel",
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "controls": [
-      { "chest_label@chest.chest_label": {} },
+      { "equip_grid@horse.equip_grid": { } },
       {
-        "small_chest_grid@chest.small_chest_grid": {
-          "offset": [ 7, 9 ]
+        "saddle@horse.saddle_image": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 16, 16 ],
+          "offset": [ 1, 1 ],
+          "layer": 4,
+          "bindings": [
+            {
+              "binding_name": "#has_saddle_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "armor_0@horse.armor_image": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 16, 16 ],
+          "offset": [ 1, 1 ],
+          "layer": 4,
+          "bindings": [
+            {
+              "binding_name": "#has_only_armor_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "carpet_0@horse.carpet_image": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 16, 16 ],
+          "offset": [ 1, 1 ],
+          "layer": 4,
+          "bindings": [
+            {
+              "binding_name": "#has_only_carpet_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "armor_1@horse.armor_image": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 16, 16 ],
+          "offset": [ 1, 19 ],
+          "layer": 4,
+          "bindings": [
+            {
+              "binding_name": "#has_armor_and_saddle_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "carpet_1@horse.carpet_image": {
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ 16, 16 ],
+          "offset": [ 1, 19 ],
+          "layer": 4,
+          "bindings": [
+            {
+              "binding_name": "#has_carpet_and_saddle_slot",
+              "binding_name_override": "#visible"
+            }
+          ]
         }
       }
     ]
   },
- 		
-//---
-//custom scroll panel
-	"my_custom_container_scroll_panel_top_half":{
-	"type": "panel",
-    "size": [ "100%", 102 ],
-    "offset": [ 0, 11 ],
+
+  "inv_panel": {
+    "type": "panel",
+    "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "anchor_from": "top_left",	
-	"controls": [
-      { "chest_label@chest.chest_label": {} },
-	  {"scrolling_panel@common.container_scroll_panel":{
-		"offset": [ 0, 11 ],
-		"size": [ "87%", "93%" ],
-		"$scrolling_content|default": "chest.my_custom_container_grid"
-	  }}
-    ]
-	},
-//--
-  "small_root_panel@common.root_panel": {
-    "$chest_panel|default": "chest.small_chest_panel_top_half",
-    "layer": 1,
+    "offset": [ 79, 18 ],
     "controls": [
-      { "common_panel@common.common_panel": {} },
+     { "inv_bg_panel@horse.inv_bg_panel": {} },
+	  {"scrolling_panel@common.container_scroll_panel":{
+		"offset": [ -48, -56 ],
+		"size": [ 90, 54 ],
+		"$scrolling_content|default": "horse.inv_grid",
+		"bindings":[
+		{
+			"binding_name": "#is_chested",
+            "binding_name_override": "#visible"	
+		}
+		]
+	  }}
+	  //{"inv_grid@horse.inv_grid":{}}
+    ]
+  },
+
+  "horse_renderer": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": [ 54, 54 ],
+    "controls": [
       {
-        "chest_panel": {
-          "type": "panel",
-          "layer": 5,
-          "controls": [
-            { "small_chest_panel_top_half@$chest_panel": {} },
-            { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-            { "hotbar_grid@common.hotbar_grid_template": {} },
-            { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
-          ]
+        "renderer_bg@horse.renderer_bg": {
+          "layer": 3
         }
       },
-      { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
-      { "gamepad_cursor@common.gamepad_cursor_button": {} }
+      {
+        "horse_custom_panel": {
+          "type": "panel",
+          "size": [ "30%", "30%" ],
+          "offset": [ 0, "30%" ],
+
+          "controls": [
+            {
+              "horse_custom": {
+                "type": "custom",
+                "animation_reset_name": "screen_animation_reset",
+                "anims": [
+                  "@common.screen_exit_size_animation_push",
+                  "@common.screen_exit_size_animation_pop",
+                  "@common.screen_entrance_size_animation_push",
+                  "@common.screen_entrance_size_animation_pop"
+                ],
+                "renderer": "live_horse_renderer",
+                "layer": 4,
+                "anchor_from": "center",
+                "anchor_to": "center",
+                "bindings": [
+                  {
+                    "binding_name": "#entity_id"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
     ]
-  },              
-//setting top half for custom container
-  "my_custom_container_root_panel@small_root_panel": {
-    "size": [ 176, 220 ],
-    "$chest_panel": "chest.my_custom_container_scroll_panel_top_half"
   },
-//---
-  "small_chest_panel": {
+
+  //---------------------------------------------------------------------------
+  // Screens
+  //---------------------------------------------------------------------------
+
+	"horse_root_panel@common.root_panel": {
+		"$inv_panel|default": "horse.inv_panel", 
+          "layer": 1,
+          "controls": [
+            {
+              "common_panel@common.common_panel": {
+                "$use_compact_close_button": true
+              }
+            },
+			{
+		"inv_panel":{
+		  "type": "panel",
+          "layer": 5,
+          "controls": [
+            { "horse_section_label@horse.horse_label": {} },
+            { "inv_panel@$inv_panel": {} },
+            {
+              "equipment@horse.equip_panel": {
+                "offset": [ 7, 18 ]
+              }
+            },
+            {
+              "renderer@horse.horse_renderer": {
+                "offset": [ 25, 18 ]
+              }
+            }
+			]
+			}
+			},
+            { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
+            { "hotbar_grid_template@common.hotbar_grid_template": {} },
+            { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
+            { "gamepad_cursor@common.gamepad_cursor_button": {} }
+          ]
+    },
+	
+  "horse_panel": {
     "type": "panel",
     "controls": [
       { "container_gamepad_helpers@common.container_gamepad_helpers": {} },
       {
-        "flying_item_renderer@common.flying_item_renderer": {
-          "layer": 11
-        }
-      },
+		  "flying_item_renderer@common.flying_item_renderer": {
+		  "layer": 11
+		} 
+	  },
+      { "selected_item_details_factory@common.selected_item_details_factory": {
+		"control_name": "@chest.selected_item_details"
+		} 
+	  },
       {
-        "selected_item_details_factory@common.selected_item_details_factory": {
-          "control_name": "@chest.selected_item_details"
-        }
-      },
-      {
-        "item_lock_notification_factory@common.item_lock_notification_factory": {
-          "control_name": "@common.item_lock_notification"
-        }
-      },
-      {
-        "root_panel@$root_panel": { }
-      }
+		"item_lock_notification_factory@common.item_lock_notification_factory": {
+		"control_name": "@common.item_lock_notification"  
+		} 
+	  },
+      { "root_panel@$root_panel":{} }
     ]
   },
-  "ender_chest_panel@chest.small_chest_panel": {
-  },
-  "small_chest_screen@common.inventory_screen_common": {
-    "$close_on_player_hurt|default": true,
+
+  "horse_screen@common.inventory_screen_common": {
+    "$close_on_player_hurt|default": false,
     "close_on_player_hurt": "$close_on_player_hurt",
-    "$root_panel|default": "chest.small_root_panel", //default root panel
-    "$new_container_title|default": "$container_title", //title of container
-    "$container_size|default": 27, //default size if nothing matches
+	"$root_panel|default": "horse.horse_root_panel",
+	"$new_container_title|default": "$container_title",
+	"$container_size|default": 15,
     "variables": [
-	//If the entity is named test, show my custom container
       {
-        "requires": "($container_title = 'test')",
-        "$root_panel": "chest.my_custom_container_root_panel",
-        "$new_container_title": "test container",
-        "$container_size": 54
-      },
-	//---
-      {
-        "requires": "$desktop_screen",
-        "$screen_content": "chest.small_chest_panel",
+		"requires": "$desktop_screen",
+        "$screen_content": "horse.horse_panel",
         "$screen_bg_content": "common.screen_background"
       },
       {
         "requires": "$pocket_screen",
-        "$container_title": "$new_container_title",
-        "$screen_content": "pocket_containers.panel"
-      }
-    ]
-  },
-  //Fixes inventory screen of ender chest disappearing
-  "ender_chest_screen@common.inventory_screen_common": {
-    "$close_on_player_hurt|default": true,
-    "close_on_player_hurt": "$close_on_player_hurt",
-    "variables": [
-      {
-        "requires": "$desktop_screen",
-        "$screen_content": "chest.small_root_panel",
-        "$screen_bg_content": "common.screen_background"
-      },
-      {
-        "requires": "$pocket_screen",
-        "$screen_content": "pocket_containers.ender_chest_panel"
+        "$screen_content": "horse_pocket.horse_panel",
+        "$close_on_player_hurt": true
       }
     ]
   }
