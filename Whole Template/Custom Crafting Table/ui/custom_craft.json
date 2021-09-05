@@ -10,7 +10,7 @@
   //crafting grid
   "custom_crafting_grid_3x3": {
     "type": "grid",
-    "size": [ 54, 54 ],
+    "size": [ 54, 54 ], //changed this if u want to change the area size between grids
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "grid_dimensions": [ 3, 3 ],
