@@ -29,7 +29,7 @@
       {
         "top_middle@crafting.crafting_input_grid_item": {
           "grid_position": [ 1, 0 ],
-		  "ignored": true //set to true if you want this grid to be visible
+		  "ignored": true //set to false if you want to show this grid
         }
       },
 	  {
