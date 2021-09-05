@@ -10,24 +10,70 @@
   //crafting grid
   "custom_crafting_grid_3x3": {
     "type": "grid",
-    "size": [ 18, 72 ],
+    "size": [ 54, 54 ],
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "grid_dimensions": [ 1, 2 ],
+    "grid_dimensions": [ 3, 3 ],
     "collection_name": "crafting_input_items",
 
     "controls": [
-	//there is many if this grids but I reduced them to 2
+	//top
       {
         "left_top@crafting.crafting_input_grid_item": {
           "grid_position": [ 0, 0 ],
           "$focus_id_binding_type": "none",
-          "$focus_id": "crafting_input_top_left"
+          "$focus_id": "crafting_input_top_left",
+		  "ignored": false
         }
       },
       {
-        "left_middle@crafting.crafting_input_grid_item": {
-          "grid_position": [ 0, 1 ]
+        "top_middle@crafting.crafting_input_grid_item": {
+          "grid_position": [ 1, 0 ],
+		  "ignored": true //set to true if you want this grid to be visible
+        }
+      },
+	  {
+        "right_top@crafting.crafting_input_grid_item": {
+          "grid_position": [ 2, 0 ],
+		  "ignored": true
+        }
+      },
+	  //middle
+	  {
+        "middle_left@crafting.crafting_input_grid_item": {
+          "grid_position": [ 0, 1 ],
+		  "ignored": true
+        }
+      },
+	  {
+        "middle@crafting.crafting_input_grid_item": {
+          "grid_position": [ 1, 1 ],
+		  "ignored": true
+        }
+      },
+	  {
+        "middle_right@crafting.crafting_input_grid_item": {
+          "grid_position": [ 2, 1 ],
+		  "ignored": true
+        }
+      },
+	  //bottom
+	  {
+        "bottom_right@crafting.crafting_input_grid_item": {
+          "grid_position": [ 0, 2 ],
+		  "ignored": false
+        }
+      },
+	  {
+        "bottom_middle@crafting.crafting_input_grid_item": {
+          "grid_position": [ 1, 2 ],
+		  "ignored": true
+        }
+      },
+	  {
+        "bottom_left@crafting.crafting_input_grid_item": {
+          "grid_position": [ 2, 2 ],
+		  "ignored": true
         }
       }
     ]
