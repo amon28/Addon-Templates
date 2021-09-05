@@ -7,6 +7,13 @@
 	"alpha": 1
   },
 	
+  //panel for having grid offset
+  "input_grid_panel":{
+	"type": "panel",
+    "grid_position": [ 0, 0 ],
+    "ignored": false
+  },
+	
   //crafting grid
   "custom_crafting_grid_3x3": {
     "type": "grid",
@@ -15,67 +22,127 @@
     "anchor_to": "top_left",
     "grid_dimensions": [ 3, 3 ],
     "collection_name": "crafting_input_items",
-
     "controls": [
 	//top
+	{
+    "top_left@cf.input_grid_panel": {
+	"grid_position": [ 0, 0 ],
+    "ignored": false,
+      "controls": [
       {
-        "left_top@crafting.crafting_input_grid_item": {
-          "grid_position": [ 0, 0 ],
-          "$focus_id_binding_type": "none",
-          "$focus_id": "crafting_input_top_left",
-		  "ignored": false
-        }
-      },
+		"left_top@crafting.crafting_input_grid_item": {
+		"offset": [ 0, 0 ] //change this if u want to move this grid
+		}
+	  }
+	  ]
+	  }
+    },
+	{
+    "top_middle@cf.input_grid_panel": {
+	"grid_position": [ 1, 0 ], 
+    "ignored": true, //set to false if you want to show this grid
+      "controls": [
       {
         "top_middle@crafting.crafting_input_grid_item": {
-          "grid_position": [ 1, 0 ],
-		  "ignored": true //set to false if you want to show this grid
+          "offset": [ 0, 0 ]
         }
-      },
-	  {
-        "right_top@crafting.crafting_input_grid_item": {
-          "grid_position": [ 2, 0 ],
-		  "ignored": true
+	  }
+	  ]
+	  }
+    },
+	{
+    "top_right@cf.input_grid_panel": {
+	"grid_position": [ 2, 0 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
+	  }
+	  ]
+	  }
+    },
 	  //middle
-	  {
-        "middle_left@crafting.crafting_input_grid_item": {
-          "grid_position": [ 0, 1 ],
-		  "ignored": true
+	{
+    "middle_left@cf.input_grid_panel": {
+	"grid_position": [ 0, 1 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
-	  {
-        "middle@crafting.crafting_input_grid_item": {
-          "grid_position": [ 1, 1 ],
-		  "ignored": true
+	  }
+	  ]
+	  }
+    },
+	{
+    "middle@cf.input_grid_panel": {
+	"grid_position": [ 1, 1 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
-	  {
-        "middle_right@crafting.crafting_input_grid_item": {
-          "grid_position": [ 2, 1 ],
-		  "ignored": true
+	  }
+	  ]
+	  }
+    },
+	{
+    "middle_right@cf.input_grid_panel": {
+	"grid_position": [ 2, 1 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
+	  }
+	  ]
+	  }
+    },
 	  //bottom
-	  {
-        "bottom_right@crafting.crafting_input_grid_item": {
-          "grid_position": [ 0, 2 ],
-		  "ignored": false
+	{
+    "bottom_left@cf.input_grid_panel": {
+	"grid_position": [ 0, 2 ],
+    "ignored": false,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
-	  {
-        "bottom_middle@crafting.crafting_input_grid_item": {
-          "grid_position": [ 1, 2 ],
-		  "ignored": true
+	  }
+	  ]
+	  }
+    },
+	{
+    "bottom_middle@cf.input_grid_panel": {
+	"grid_position": [ 1, 2 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      },
-	  {
-        "bottom_left@crafting.crafting_input_grid_item": {
-          "grid_position": [ 2, 2 ],
-		  "ignored": true
+	  }
+	  ]
+	  }
+    },
+	{
+    "bottom_right@cf.input_grid_panel": {
+	"grid_position": [ 2, 2 ],
+    "ignored": true,
+      "controls": [
+      {
+        "top_middle@crafting.crafting_input_grid_item": {
+          "offset": [ 0, 0 ]
         }
-      }
+	  }
+	  ]
+	  }
+    }
     ]
   },
   //workbench
