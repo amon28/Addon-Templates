@@ -1,7 +1,7 @@
 {
   // Alphabetical order please :)
   "ui_defs": [
-	"ui/custom_craft.json",
+	"ui/custom_craft.json", //file name must be unique to avoid conflicts with other addons that also uses this
   
     "ui/account_banned_screen.json",
     "ui/achievement_screen.json",

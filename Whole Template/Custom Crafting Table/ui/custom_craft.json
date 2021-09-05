@@ -1,12 +1,12 @@
 {
-  "namespace": "cf",
+  "namespace": "cf", // make sure to change this namespace, this must be unique
   
 //ui picture	
 "kitchen_image@horse.overlay_image": {
     "texture": "textures/kitchen_ui",
 	"alpha": 1
   },
-	
+  
   //panel for having grid offset
   "input_grid_panel":{
 	"type": "panel",
@@ -22,10 +22,11 @@
     "anchor_to": "top_left",
     "grid_dimensions": [ 3, 3 ],
     "collection_name": "crafting_input_items",
+
     "controls": [
 	//top
 	{
-    "top_left@cf.input_grid_panel": {
+    "top_left@input_grid_panel": {
 	"grid_position": [ 0, 0 ],
     "ignored": false,
       "controls": [
@@ -38,7 +39,7 @@
 	  }
     },
 	{
-    "top_middle@cf.input_grid_panel": {
+    "top_middle@input_grid_panel": {
 	"grid_position": [ 1, 0 ], 
     "ignored": true, //set to false if you want to show this grid
       "controls": [
@@ -51,7 +52,7 @@
 	  }
     },
 	{
-    "top_right@cf.input_grid_panel": {
+    "top_right@input_grid_panel": {
 	"grid_position": [ 2, 0 ],
     "ignored": true,
       "controls": [
@@ -65,7 +66,7 @@
     },
 	  //middle
 	{
-    "middle_left@cf.input_grid_panel": {
+    "middle_left@input_grid_panel": {
 	"grid_position": [ 0, 1 ],
     "ignored": true,
       "controls": [
@@ -78,7 +79,7 @@
 	  }
     },
 	{
-    "middle@cf.input_grid_panel": {
+    "middle@input_grid_panel": {
 	"grid_position": [ 1, 1 ],
     "ignored": true,
       "controls": [
@@ -91,7 +92,7 @@
 	  }
     },
 	{
-    "middle_right@cf.input_grid_panel": {
+    "middle_right@input_grid_panel": {
 	"grid_position": [ 2, 1 ],
     "ignored": true,
       "controls": [
@@ -105,7 +106,7 @@
     },
 	  //bottom
 	{
-    "bottom_left@cf.input_grid_panel": {
+    "bottom_left@input_grid_panel": {
 	"grid_position": [ 0, 2 ],
     "ignored": false,
       "controls": [
@@ -118,7 +119,7 @@
 	  }
     },
 	{
-    "bottom_middle@cf.input_grid_panel": {
+    "bottom_middle@input_grid_panel": {
 	"grid_position": [ 1, 2 ],
     "ignored": true,
       "controls": [
@@ -131,7 +132,7 @@
 	  }
     },
 	{
-    "bottom_right@cf.input_grid_panel": {
+    "bottom_right@input_grid_panel": {
 	"grid_position": [ 2, 2 ],
     "ignored": true,
       "controls": [
@@ -157,17 +158,19 @@
         }
       },
       {
-        "inventory_label@inventory_label": { //? refactor this out
-          "offset": [ -21, 72 ]
+        "inventory_label@crafting.inventory_label": { //? refactor this out
+          "offset": [ -21, 72 ],
+		  "ignored": true
         }
       },
       {
-        "crafting_arrow_large@crafting_arrow_large": {
-          "offset": [ 61, 35 ]
+        "crafting_arrow_large@crafting.crafting_arrow_large": {
+          "offset": [ 61, 35 ],
+		  "ignored": true
         }
       },
       {
-        "crafting_grid_3x3@cf.custom_crafting_grid_3x3": {
+        "crafting_grid_3x3@custom_crafting_grid_3x3": {
           "offset": [ 20, 40 ]
         }
       },
@@ -187,7 +190,7 @@
     "anchor_to": "top_left",
     "controls": [
       {
-        "crafting_panel@cf.custom_work_bench_panel_3x3": {
+        "crafting_panel@custom_work_bench_panel_3x3": {
           "offset": [ 29, 0 ]
         }
       }
@@ -200,7 +203,7 @@
     "controls": [
 	    //this the ui image
 		{
-		"@cf.kitchen_image":{
+		"@kitchen_image":{
 			"layer": 2,
 			"size":["95%",90],
 			"offset":[0,-38]
@@ -289,13 +292,13 @@
 	  ]
 	},
   //Final panel to show
+  //use lang file to change your container title
   "final_panel":{
 		"type": "panel",
-		"$top_half_variant": "cf.custom_crafting_panel_top_half",
-		"$new_container_title": "Cooking Table", //Your preferred name
+		"$top_half_variant": "custom_crafting_panel_top_half",
 		"controls":[
-		{"@cf.custom_player_inventory":{}},
-		{"items@cf.item_control": {}}
+		{"@custom_player_inventory":{}},
+		{"items@item_control": {}}
 		],
 		"bindings": [
 		{
@@ -304,7 +307,7 @@
 		},
 		{
 		"binding_type": "view",
-		"source_property_name": "(#crafting_label_text = 'test')", //your custom crafting table default name (in the behaviors)
+		"source_property_name": "(#crafting_label_text = 'custom_craft')", //your custom crafting table default name (in the behaviors)
 		"target_property_name": "#visible" 
 		}
 		]		
