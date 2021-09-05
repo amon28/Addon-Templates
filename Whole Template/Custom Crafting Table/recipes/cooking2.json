@@ -8,7 +8,9 @@
     
     "tags": [ "cooking" ],
     "pattern": [
-      "IF "
+    "I  ",
+	  "   ",
+	  "F  "
     ],
     "key": {
       "I": {
