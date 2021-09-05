@@ -19,17 +19,8 @@
     "texture": "textures/ui/empty_horse_slot_saddle"
   },
   
-  "cover_bg@horse.overlay_image": {
-    "texture": "textures/gray_cover",
-	"alpha": 1
-  },
-  
   "chest_image@horse.overlay_image": {
     "texture": "textures/empty_horse_slot_chest"
-  },
-  
-  "upgrade_image@horse.overlay_image": {
-    "texture": "textures/empty_horse_slot_upgrade"
   },
 
   "armor_image@horse.overlay_image": {
