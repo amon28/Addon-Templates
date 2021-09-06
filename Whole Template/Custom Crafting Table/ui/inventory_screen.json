@@ -7,7 +7,7 @@
 			"array_name": "controls",
 			"operation": "insert_back",
 			"value": {
-	//you custom crafting ui
+				//you custom crafting ui
 				"custom_crafting_panel@cf.final_panel":{} //in custom craft file (namespace.final_panel)
 			}
 		},
@@ -23,7 +23,7 @@
 					},
 					{
 					"binding_type": "view",
-					"source_property_name": "(not (#crafting_label_text = 'custom_craft'))", //normal crafting table name
+					"source_property_name": "(not (#crafting_label_text = 'custom_craft'))", //Your custom crafting table name
 					"target_property_name": "#visible" 
 					}
 				]
