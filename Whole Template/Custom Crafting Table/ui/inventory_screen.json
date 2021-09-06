@@ -23,7 +23,7 @@
 			},
 			{
 			"binding_type": "view",
-			"source_property_name": "(#crafting_label_text = container.crafting)", //normal crafting table name
+			"source_property_name": "(not (#crafting_label_text = 'custom_craft'))", //your custom crafting name
 			"target_property_name": "#visible" 
 			}
 			]
