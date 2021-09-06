@@ -1,0 +1,41 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+      "description": {
+          "identifier": "multiple_use:mu_item",
+          "category" : "items"     
+      },
+      "components": {		  
+		  "minecraft:display_name":{
+			  "value": "Multiple Use"
+		  },
+		  "minecraft:icon":{
+			  "texture": "apple"
+		  },
+		  "minecraft:on_use": {
+			"on_use": {
+			"event": "use",
+			"target": "self"
+			}
+		 }
+	  },
+      "events": {
+		 "use":{
+			"sequence":[
+			{
+			"condition": "query.is_sneaking",
+			"run_command":{
+				"command": "say You Are Sneaking!"
+			}
+			},
+			{
+			"condition": "!query.is_sneaking",
+			"run_command":{
+				"command": "say You Are Not Sneaking!"
+			}
+			}
+			]
+		 }			 
+	  }
+  }
+}
