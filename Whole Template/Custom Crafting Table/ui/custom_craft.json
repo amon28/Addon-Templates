@@ -11,21 +11,21 @@
   "input_grid_panel":{
 	"type": "panel",
     "grid_position": [ 0, 0 ],
-    "ignored": false
+    "ignored": true
   },
 	
   //crafting grid
   "custom_crafting_grid_3x3": {
     "type": "grid",
-    "size": [ 54, 54 ], //changed this if u want to change the area size between grids
+    "size": [ 54, 72 ], //changed this if u want to change the area size between grids
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "grid_dimensions": [ 3, 3 ],
+    "grid_dimensions": [ 3, 4 ],
     "collection_name": "crafting_input_items",
 
     "controls": [
-	//top
 	{
+	//top	
     "top_left@input_grid_panel": {
 	"grid_position": [ 0, 0 ],
     "ignored": false,
@@ -36,47 +36,47 @@
 		}
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "top_middle@input_grid_panel": {
 	"grid_position": [ 1, 0 ], 
-    "ignored": true, //set to false if you want to show this grid
+    "ignored": true, //set to true if you want to show this grid
       "controls": [
       {
         "top_middle@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
-        }
+		}
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "top_right@input_grid_panel": {
-	"grid_position": [ 2, 0 ],
-    "ignored": true,
+	"grid_position": [ 2, 0 ], 
+    "ignored": true, //set to true if you want to show this grid
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "top_right@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
-        }
+		}
 	  }
 	  ]
-	  }
+	}
     },
-	  //middle
 	{
+	//middle	
     "middle_left@input_grid_panel": {
 	"grid_position": [ 0, 1 ],
     "ignored": true,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "middle_left@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
-        }
+		}
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "middle@input_grid_panel": {
@@ -84,12 +84,12 @@
     "ignored": true,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "middle@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
-        }
+		}
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "middle_right@input_grid_panel": {
@@ -97,26 +97,26 @@
     "ignored": true,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "middle_right@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
         }
 	  }
 	  ]
-	  }
+	}
     },
-	  //bottom
 	{
+	//bottom	
     "bottom_left@input_grid_panel": {
 	"grid_position": [ 0, 2 ],
     "ignored": false,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "bottom_left@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
         }
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "bottom_middle@input_grid_panel": {
@@ -124,12 +124,12 @@
     "ignored": true,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "bottom_middle@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
         }
 	  }
 	  ]
-	  }
+	}
     },
 	{
     "bottom_right@input_grid_panel": {
@@ -137,12 +137,12 @@
     "ignored": true,
       "controls": [
       {
-        "top_middle@crafting.crafting_input_grid_item": {
+        "bottom_right@crafting.crafting_input_grid_item": {
           "offset": [ 0, 0 ]
         }
 	  }
 	  ]
-	  }
+	}
     }
     ]
   },
@@ -203,7 +203,7 @@
     "controls": [
 	    //this the ui image
 		{
-		"@kitchen_image":{
+		"ki@kitchen_image":{
 			"layer": 2,
 			"size":["95%",90],
 			"offset":[0,-38]
@@ -212,7 +212,7 @@
       {
         "common_panel@common.common_panel": {
           "offset": [ 0, 0 ],
-          "$show_close_button": false
+          "$show_close_button": true
         }
       },
       {
@@ -297,8 +297,8 @@
 		"type": "panel",
 		"$top_half_variant": "custom_crafting_panel_top_half",
 		"controls":[
-		{"@custom_player_inventory":{}},
-		{"items@item_control": {}}
+		{ "cpi@custom_player_inventory":{} },
+		{ "icontrol@item_control": {} }
 		],
 		"bindings": [
 		{
