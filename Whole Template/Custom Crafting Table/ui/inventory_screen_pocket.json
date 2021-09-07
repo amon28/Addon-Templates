@@ -25,8 +25,7 @@
 		{
 		"array_name": "bindings",
 		"operation": "insert_back",
-		"value": {
-			//you custom crafting ui
+		"value": {			
 			"binding_type": "view",
 			"source_property_name": "(#crafting_label_text = container.crafting)",
 			"target_property_name": "#visible" 
