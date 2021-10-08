@@ -32,7 +32,7 @@
       "controls": [
       {
 		"left_top@crafting.crafting_input_grid_item": {
-		"offset": [ 0, 0 ] //change this if u want to move this grid
+		"offset": [ 10, 0 ] //change this if u want to move this grid
 		}
 	  }
 	  ]
@@ -296,18 +296,22 @@
   "final_panel":{
 		"type": "panel",
 		"$top_half_variant": "custom_crafting_panel_top_half",
+		"ignored": "#visible",
+		"ignore": "#visible",
 		"controls":[
 		{ "cpi@custom_player_inventory":{} },
 		{ "icontrol@item_control": {} }
 		],
 		"bindings": [
 		{
-        	"binding_name": "#crafting_label_text"
+		"binding_name": "#crafting_label_text",
+		"binding_name_override": "#myCrafting2",//your custom binding name, change this
+		"binding_type": "global"
 		},
 		{
 		"binding_type": "view",
-		"source_property_name": "(#crafting_label_text = 'custom_craft')", //your custom crafting table default name (in the behaviors)
-		"target_property_name": "#visible" 
+		"source_property_name": "(#myCrafting2 = 'test')", //your custom binding name and crafting table name
+		"target_property_name": "#visible"
 		}
 		]		
 	}

@@ -21,13 +21,12 @@
 			"binding_name": "#crafting_label_text"
 		}
 		},
-		//vanilla crafting table and your 2nd custom crafting table that doesn't use custom UI
 		{
 		"array_name": "bindings",
 		"operation": "insert_back",
 		"value": {			
 			"binding_type": "view",
-			"source_property_name": "((#crafting_label_text = container.crafting) or (#crafting_label_text = 'custom_craft2'))",
+			"source_property_name": "(#crafting_label_text = container.crafting)",
 			"target_property_name": "#visible" 
 		}
 		}

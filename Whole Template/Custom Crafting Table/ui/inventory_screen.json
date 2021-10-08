@@ -2,6 +2,7 @@
   "namespace": "crafting",
 //thing you need to edit
   "crafting_screen": {
+	  
     "modifications": [
 		{
 			"array_name": "controls",
@@ -23,7 +24,7 @@
 				//vanilla crafting table and your 2nd custom crafting table that doesn't use custom UI
 				{
 				"binding_type": "view",
-				"source_property_name": "((#crafting_label_text = container.crafting) or (#crafting_label_text = 'custom_craft2'))",
+				"source_property_name": "(#crafting_label_text = container.crafting)",
 				"target_property_name": "#visible" 
 				}
 				]
