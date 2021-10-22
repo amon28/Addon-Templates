@@ -7,6 +7,7 @@ chatCallback.subscribe(bChat);
  
 function bChat(chatData) 
 {
+//Typing !inv in chat will show all the items in your inventory in the chat
 if(chatData.message == "!inv"){
 try{
 let player = chatData.sender;
