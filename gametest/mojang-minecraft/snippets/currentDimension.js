@@ -1,5 +1,4 @@
 function currentDimension(x,y,z){
-try{
 let overworld = World.getDimension("overworld").getEntitiesAtBlockLocation(new BlockLocation(x,y,z));	
 let nether = World.getDimension("nether").getEntitiesAtBlockLocation(new BlockLocation(x,y,z));
 let theEnd = World.getDimension("the end").getEntitiesAtBlockLocation(new BlockLocation(x,y,z));
@@ -19,7 +18,4 @@ for(let count=0; count<theEnd.length; count++){
 	return "the end";
 	}
 }	
-}catch(e){
-Commands.run(`say ${e}`,World.getDimension('overworld'));	
-}
 }
