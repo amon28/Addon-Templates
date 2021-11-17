@@ -1,4 +1,3 @@
-import * as GameTest from 'mojang-gametest';
 import {Commands,World,ItemStack,MinecraftItemTypes} from 'mojang-minecraft';
     
 const chatCallback = World.events.beforeChat;
