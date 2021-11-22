@@ -1,6 +1,6 @@
-import {Commands,World,ItemStack,MinecraftItemTypes} from 'mojang-minecraft';
+import {world,ItemStack,MinecraftItemTypes} from 'mojang-minecraft';
     
-const chatCallback = World.events.beforeChat;
+const chatCallback = world.events.beforeChat;
 
 chatCallback.subscribe(bChat);	  
  
@@ -13,14 +13,14 @@ let player = chatData.sender;
 let pInv = player.getComponent("inventory").container;
 	for(let slot=0; slot<pInv.size; slot++){
 		let item = pInv.getItem(slot);
-		if(item != null){
+		if(!item) continue;
 		let iName = item.id;
-		Commands.run(`say ${iName}`, World.getDimension("overworld"));		
-		}
+		player.runCommand(`say ${iName}`);		
+		
 	}
 	
 }catch(e){
-Commands.run(`say ${e}`, World.getDimension("overworld"));			
+console.warn(`say ${e}`);			
 }
 }
 }	
