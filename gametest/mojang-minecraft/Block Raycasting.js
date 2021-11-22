@@ -17,9 +17,9 @@ let players = world.getPlayers();
 		let currentDimension = players[index].dimension;
 		//do something
 		if(block != null){
-		player.runCommand(`title @p[name="${player.nameTag}"] actionbar ${block.type.id}`);		
+		player.runCommand(`title @s actionbar ${block.type.id}`);		
 		}else{
-		player.runCommand(`title @p[name="${player.nameTag}"] clear`);	
+		player.runCommand(`title @s clear`);	
 		}
 	}
 }
