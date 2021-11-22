@@ -11,8 +11,5 @@ https://bedrock.dev/
 This is a server side scripts use for testing minecraft mechanics and for creating mechanics.
 ## Microsoft Docs
 https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
-## Github Docs
-Outdated
-https://github.com/Bedrock-OSS/gametest-types/blob/main/js/Minecraft.js
 
 
