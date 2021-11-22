@@ -2,10 +2,8 @@ This repo is a collection of templates that I made you can also use this in your
 
 # Behaviors and Resources
 Your usual addon
-## Bedrock Wiki
-https://wiki.bedrock.dev/
-## Bedrock.Dev
-https://bedrock.dev/
+-** Bedrock Wiki** - https://wiki.bedrock.dev/
+-**Bedrock.Dev** - https://bedrock.dev/
 
 # Gametest
 This is a server side scripts use for testing minecraft mechanics and for creating mechanics.
