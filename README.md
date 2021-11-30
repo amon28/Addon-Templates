@@ -4,6 +4,9 @@ This repo is a collection of templates that I made you can also use this in your
 Your usual addon
 - **Bedrock Wiki** https://wiki.bedrock.dev/  
 - **Bedrock.Dev** https://bedrock.dev/  
+Tools
+- (Models and Animations) **Blockbench** https://www.blockbench.net/
+- (Particles) **Snowstorm** https://snowstorm.app/
 
 # Gametest
 This is a server side scripts use for testing minecraft mechanics and for creating mechanics.  
