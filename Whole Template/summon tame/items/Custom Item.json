@@ -1,0 +1,20 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "dew:custom_projectile"
+    },
+
+    "components": {
+      "minecraft:projectile": {
+		"projectile_entity": "dew:custom_projectile",
+		"minimum_critical_power": 0
+		},
+		"minecraft:throwable": {
+		"do_swing_animation": true,
+		"max_draw_duration": 2,
+		"scale_power_by_draw_duration": true
+		}
+    }
+  }
+}

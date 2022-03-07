@@ -1,0 +1,22 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "dew:custom_projectile",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+	  "runtime_identifier": "minecraft:arrow"
+    },
+    "components": {
+	  "minecraft:projectile": {},
+			"minecraft:transformation": {
+				//Your custom mob identifier and tame event
+				"into": "minecraft:wolf",
+				"keep_owner": true
+			}
+    },
+	"events":{
+	}
+  }
+}

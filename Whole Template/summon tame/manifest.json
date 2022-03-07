@@ -1,0 +1,19 @@
+//Made using manifest generator by Dewdimpple
+{
+    "format_version": 2,
+    "header": {
+        "description": "Made By: Dewdimpple/Amon",
+        "name": "Summon Tame Template",
+        "uuid": "45451218-2516-4afd-91ef-bd36ac13c1b3",
+        "version": [1,0,0],
+        "min_engine_version": [ 1, 18, 1 ]
+    },
+    "modules": [
+        {
+            "description": "Made By: Dewdimpple/Amon",
+            "type": "data",
+            "uuid": "f1edd6a2-d7ea-45ea-8f36-498e12a20f2d",
+            "version": [1,0,0]
+        }
+    ]
+}
