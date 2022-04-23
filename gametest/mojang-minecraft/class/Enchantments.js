@@ -1,10 +1,9 @@
-import {EnchantmentList, MinecraftEnchantmentTypes, Enchantment, ItemStack} from 'mojang-minecraft';
+import {EnchantmentList, MinecraftEnchantmentTypes, Enchantment, ItemStack, world} from 'mojang-minecraft';
 
 export class Enchantments{
 	
 	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
 	//returns itemstack
-	//enchant(itemStack,'sharpness',1)
 	static enchant(itemStack,enchantName,level){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
@@ -30,9 +29,10 @@ export class Enchantments{
 		let enchantTypes = [];
 		for(let e in MinecraftEnchantmentTypes){	
 			for(let e2 in MinecraftEnchantmentTypes[e]){
-				enchantTypes.push(MinecraftEnchantmentTypes[e]);
-			}
+				if(e2.includes('id')) enchantTypes.push(MinecraftEnchantmentTypes[e]);
+			}			
 		}
+		enchantTypes.sort((a,b) => a.id>b.id?1:a.id == b.id?0:-1);
 		return enchantTypes;
 	}
 }
