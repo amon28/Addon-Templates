@@ -4,6 +4,7 @@ export class Enchantments{
 	
 	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
 	//returns itemstack
+	//enchant(itemStack,'sharpness',1)
 	static enchant(itemStack,enchantName,level){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
