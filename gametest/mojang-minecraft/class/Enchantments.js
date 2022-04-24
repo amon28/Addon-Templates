@@ -3,8 +3,9 @@ import {EnchantmentList, MinecraftEnchantmentTypes, Enchantment, ItemStack, worl
 export class Enchantments{
 	
 	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
+	//setEnchant(itemStack,'sharpness',1)
 	//returns itemstack
-	static enchant(itemStack,enchantName,level){
+	static setEnchant(itemStack,enchantName,level){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
 		let enchantType;
@@ -24,8 +25,47 @@ export class Enchantments{
 		throw `No Enchant ${enchantName} Found!`;
 	}
 	
+	//returns list of MinecraftEnchantmentTypes the itemstack has
+	static getEnchants(itemStack){		
+		let enchantmentsArray = [];
+		const eCompo = itemStack.getComponent("minecraft:enchantments");
+		const enchantments = eCompo.enchantments;
+		
+		for(let e in MinecraftEnchantmentTypes){	
+			for(let e2 in MinecraftEnchantmentTypes[e]){
+				if(e2.includes('id')){
+					if(enchantments.hasEnchantment(MinecraftEnchantmentTypes[e])){
+						enchantmentsArray.push(MinecraftEnchantmentTypes[e]);
+					}
+				}
+			}			
+		}
+		
+		return enchantmentsArray;		
+	}
+	
+	//removeEnchant(itemStack,'sharpness')
+	//returns itemstack
+	static removeEnchant(itemStack,enchantName){
+		const eCompo = itemStack.getComponent("minecraft:enchantments");
+		const enchantments = eCompo.enchantments;
+		let enchantType;
+		
+		for(let e in MinecraftEnchantmentTypes){				
+			for(let e2 in MinecraftEnchantmentTypes[e]){
+				enchantType = MinecraftEnchantmentTypes[e];
+				if((MinecraftEnchantmentTypes[e].id.toLowerCase()).includes(enchantName.toLowerCase())){
+					const enchant = enchantments.removeEnchantment(enchantType);
+					eCompo.enchantments = enchantments;
+					return itemStack;	
+				}
+			}		
+		}
+		throw `No Enchant ${enchantName} Found!`;
+	}
+	
 	//returns MinecraftEnchantmentTypes as an array
-	static enchantTypes(){
+	static getAllEnchantTypes(){
 		let enchantTypes = [];
 		for(let e in MinecraftEnchantmentTypes){	
 			for(let e2 in MinecraftEnchantmentTypes[e]){
