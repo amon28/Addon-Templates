@@ -25,7 +25,7 @@ export class Enchantments{
 		throw `No Enchant ${enchantName} Found!`;
 	}
 	
-	//returns list of MinecraftEnchantmentTypes the itemstack has
+	//returns Echantment Class array
 	static getEnchants(itemStack){		
 		let enchantmentsArray = [];
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
@@ -35,7 +35,8 @@ export class Enchantments{
 			for(let e2 in MinecraftEnchantmentTypes[e]){
 				if(e2.includes('id')){
 					if(enchantments.hasEnchantment(MinecraftEnchantmentTypes[e])){
-						enchantmentsArray.push(MinecraftEnchantmentTypes[e]);
+						const enchants = enchantments.getEnchantment(MinecraftEnchantmentTypes[e]);
+						enchantmentsArray.push(enchants);
 					}
 				}
 			}			
