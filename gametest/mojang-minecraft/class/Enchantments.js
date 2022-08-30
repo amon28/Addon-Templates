@@ -1,11 +1,37 @@
-import {EnchantmentList, MinecraftEnchantmentTypes, Enchantment, ItemStack, world} from 'mojang-minecraft';
+/**
+ * @author Dewdimpple/Amon28
+ */
+
+import {MinecraftEnchantmentTypes, Enchantment, ItemStack} from 'mojang-minecraft';
 
 export class Enchantments{
 	
-	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
-	//setEnchant(itemStack,'sharpness',1)
-	//returns itemstack
-	static setEnchant(itemStack,enchantName,level){
+	
+	/**
+   * https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
+   * setEnchant
+   * @param {ItemStack,EnchantmentType,int} itemStack - Your item, enchantType - enchantment to be applied, level - level of enchantment.
+   * @return {ItemStack} itemStack - Enchanted Item.
+   */
+	
+	static setEnchant(itemStack,enchantType,level){
+		const eCompo = itemStack.getComponent("minecraft:enchantments");
+		const enchantments = eCompo.enchantments;
+		if(enchantType.maxLevel < level) throw `Enchantment level ${level} too high!`;
+		if(!(enchantments.canAddEnchantment(new Enchantment(enchantType)))) throw `Enchantment ${enchantType.id} Incompatible with ${itemStack.id}!`;
+			const enchant = enchantments.addEnchantment(new Enchantment(enchantType,level));
+			eCompo.enchantments = enchantments;
+			return itemStack;				
+	}
+	
+	/**
+   * https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
+   * setEnchantString
+   * @param {ItemStack,String,Integer} itemStack - Your item, enchantName - enchantment name to be applied, level - level of enchantment.
+   * @return {ItemStack} itemStack - Enchanted Item.
+   */
+	
+	static setEnchantString(itemStack,enchantName,level){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
 		let enchantType;
@@ -25,7 +51,11 @@ export class Enchantments{
 		throw `No Enchant ${enchantName} Found!`;
 	}
 	
-	//returns Echantment Class array
+	/**
+   * getEnchants
+   * @param {ItemStack} itemStack - Your item.
+   * @return {EnchantmentType[]} enchantmentsArray - List of enchantment types.
+   */
 	static getEnchants(itemStack){		
 		let enchantmentsArray = [];
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
@@ -44,28 +74,25 @@ export class Enchantments{
 		
 		return enchantmentsArray;		
 	}
-	
-	//removeEnchant(itemStack,'sharpness')
-	//returns itemstack
-	static removeEnchant(itemStack,enchantName){
+
+	/**
+   * removeEnchant
+   * @param {ItemStack,EnchantmentType} itemStack - Your item, enchantType - Enchantment 
+   * @return {ItemStack} itemStack - Edited item.
+   */
+	static removeEnchant(itemStack,enchantType){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
-		let enchantType;
 		
-		for(let e in MinecraftEnchantmentTypes){				
-			for(let e2 in MinecraftEnchantmentTypes[e]){
-				enchantType = MinecraftEnchantmentTypes[e];
-				if((MinecraftEnchantmentTypes[e].id.toLowerCase()).includes(enchantName.toLowerCase())){
-					const enchant = enchantments.removeEnchantment(enchantType);
-					eCompo.enchantments = enchantments;
-					return itemStack;	
-				}
-			}		
-		}
-		throw `No Enchant ${enchantName} Found!`;
+		const enchant = enchantments.removeEnchantment(enchantType);
+		eCompo.enchantments = enchantments;
+		return itemStack;	
 	}
 	
-	//returns MinecraftEnchantmentTypes as an array
+	/**
+   * getAllEnchantTypes
+   * @return {EnchantmentType[]} enchantTypes - List of enchant types.
+   */
 	static getAllEnchantTypes(){
 		let enchantTypes = [];
 		for(let e in MinecraftEnchantmentTypes){	
