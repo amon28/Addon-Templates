@@ -138,6 +138,7 @@
 		"requires": "($pocket_screen and ($container_title = 'test'))",
 		"$container_title": "test container",
 		"$screen_content": "chest.my_custom_container_root_panel",
+       }
       }
     ]
   },
