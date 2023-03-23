@@ -20,7 +20,7 @@ export class Enchantments{
 		let enchantType = enchantment.type;
 		
 		if(!(enchantments.canAddEnchantment(enchantment))) throw `Enchantment ${enchantType.id} Incompatible with ${itemStack.id}!`;
-		const enchant = enchantments.addEnchantment(new Enchantment(enchantType,level));
+		const enchant = enchantments.addEnchantment(enchantment);
 		eCompo.enchantments = enchantments;
 		return itemStack;	
 								
