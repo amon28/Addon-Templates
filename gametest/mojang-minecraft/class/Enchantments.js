@@ -19,14 +19,13 @@ export class Enchantments{
 		const enchantments = eCompo.enchantments;
 		let enchantType = enchantment.type;
 		
-		if(!(enchantments.canAddEnchantment(new Enchantment(enchantType)))) throw `Enchantment ${enchantName} Incompatible with ${itemStack.id}!`;
+		if(!(enchantments.canAddEnchantment(enchantment))) throw `Enchantment ${enchantType.id} Incompatible with ${itemStack.id}!`;
 		const enchant = enchantments.addEnchantment(new Enchantment(enchantType,level));
 		eCompo.enchantments = enchantments;
 		return itemStack;	
 								
 	}
-	
-	//return ItemStack
+
 	static setEnchantName(itemStack,enchantName,level){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
 		const enchantments = eCompo.enchantments;
@@ -60,6 +59,7 @@ export class Enchantments{
 		return enchantmentsArray;		
 	}
 	
+	//removeEnchant(itemStack,'sharpness')
 	//returns ItemStack
 	static removeEnchant(itemStack,enchantment){
 		const eCompo = itemStack.getComponent("minecraft:enchantments");
