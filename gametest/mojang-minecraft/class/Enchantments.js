@@ -1,8 +1,8 @@
-import {MinecraftEnchantmentTypes, Enchantment} from '@minecraft/server';
+import {EnchantmentTypes, Enchantment} from '@minecraft/server';
 
 export class Enchantments{
 	
-	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/minecraftenchantmenttypes
+	//https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/EnchantmentTypes
 
 	//returns ItemStack
 	static addEnchant(itemStack,enchantment){
@@ -20,7 +20,7 @@ export class Enchantments{
 		let enchantType = enchantment.type;
 		
 		if(!(enchantments.canAddEnchantment(enchantment))) throw `Enchantment ${enchantType.id} Incompatible with ${itemStack.id}!`;
-		const enchant = enchantments.addEnchantment(enchantment);
+		const enchant = enchantments.addEnchantment(new Enchantment(enchantType,level));
 		eCompo.enchantments = enchantments;
 		return itemStack;	
 								
@@ -31,11 +31,11 @@ export class Enchantments{
 		const enchantments = eCompo.enchantments;
 		let enchantType;
 		
-		for(let e in MinecraftEnchantmentTypes){				
-			for(let e2 in MinecraftEnchantmentTypes[e]){
-				enchantType = MinecraftEnchantmentTypes[e];
-				if((MinecraftEnchantmentTypes[e].id.toLowerCase()).includes(enchantName.toLowerCase())){
-					if(MinecraftEnchantmentTypes[e].maxLevel < level) throw `Enchantment level ${level} too high!`;
+		for(let e in EnchantmentTypes){				
+			for(let e2 in EnchantmentTypes[e]){
+				enchantType = EnchantmentTypes[e];
+				if((EnchantmentTypes[e].id.toLowerCase()).includes(enchantName.toLowerCase())){
+					if(EnchantmentTypes[e].maxLevel < level) throw `Enchantment level ${level} too high!`;
 					if(!(enchantments.canAddEnchantment(new Enchantment(enchantType)))) throw `Enchantment ${enchantName} Incompatible with ${itemStack.id}!`;
 						const enchant = enchantments.addEnchantment(new Enchantment(enchantType,level));
 						eCompo.enchantments = enchantments;
@@ -75,12 +75,12 @@ export class Enchantments{
 		throw `No Enchant ${enchantType.id} Found!`;
 	}
 	
-	//returns MinecraftEnchantmentTypes as an array
+	//returns EnchantmentTypes as an array
 	static getAllEnchantTypes(){
 		let enchantTypes = [];
-		for(let e in MinecraftEnchantmentTypes){	
-			for(let e2 in MinecraftEnchantmentTypes[e]){
-				if(e2.includes('id')) enchantTypes.push(MinecraftEnchantmentTypes[e]);
+		for(let e in EnchantmentTypes){	
+			for(let e2 in EnchantmentTypes[e]){
+				if(e2.includes('id')) enchantTypes.push(EnchantmentTypes[e]);
 			}			
 		}
 		enchantTypes.sort((a,b) => a.id>b.id?1:a.id == b.id?0:-1);
