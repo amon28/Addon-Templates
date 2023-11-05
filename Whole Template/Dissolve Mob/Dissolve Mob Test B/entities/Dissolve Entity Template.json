@@ -1,0 +1,103 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "template:template",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+	  "properties":{
+		  "temp:temp_dissolve_tick": { 
+			"type": "float", 
+			"range": [0.0, 30.0], //You can change the 30 value to your liking
+			"default": 0.0,
+			"client_sync": true
+		}		  
+	  }
+    },
+    "component_groups": {
+		"temp:start_dissolve":{
+			"minecraft:timer": {
+				"looping": true,
+				"time": 0.0,
+				"time_down_event": {
+					"event": "temp:add_dissolve_tick"
+				}
+			}
+		},
+		"temp:reverse_dissolve":{
+			"minecraft:timer": {
+				"looping": true,
+				"time": 0.0,
+				"time_down_event": {
+					"event": "temp:sub_dissolve_tick"
+				}
+			}
+		}
+    },
+
+    "components": {
+      "minecraft:is_hidden_when_invisible": {
+      },
+      "minecraft:type_family": {
+        "family": [ "template" ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 15,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 1,
+        "height": 1
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "cause": "fall",
+          "deals_damage": false
+        }
+      },
+      "minecraft:movement": {
+        "value": 0
+      },
+      "minecraft:health": {
+        "value": 1,
+        "max": 1
+      },
+      "minecraft:physics": {
+		  "has_collision": false,
+		  "has_gravity": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+      }
+    },
+
+    "events": {
+		"temp:reset_dissolve":{
+			"remove":{"component_groups":["temp:start_dissolve","temp:reverse_dissolve"]},
+			"set_property": { "temp:temp_dissolve_tick": 0.0 }
+		},
+		"temp:start_dissolve":{
+			"add":{"component_groups":["temp:start_dissolve"]},
+			"remove":{"component_groups":["temp:reverse_dissolve"]}
+		},
+		"temp:reverse_dissolve":{
+			"add":{"component_groups":["temp:reverse_dissolve"]},
+			"remove":{"component_groups":["temp:start_dissolve"]}
+		},
+		"temp:add_dissolve_tick":{
+			"sequence":[
+			{
+				"set_property": { "temp:temp_dissolve_tick": "query.property('temp:temp_dissolve_tick') + 1.0" }
+			}
+			]
+		},
+		"temp:sub_dissolve_tick":{
+			"sequence":[
+			{
+				"set_property": { "temp:temp_dissolve_tick": "query.property('temp:temp_dissolve_tick') - 1.0" }
+			}
+			]
+		}
+    }
+  }
+}

@@ -1,0 +1,19 @@
+
+{
+    "format_version": 2,
+    "header": {
+        "description": "Made By:Dewdimpple\nYoutube:Dewdimpple Aoi Ch.\nTwitter:@Dewdimpple",
+        "name": "Dissolve Mob Test",
+        "uuid": "8f37c9b0-7e97-42fb-a99a-9826dcc95576",
+        "version": [0,0,0],
+        "min_engine_version": [ 1,20,40 ]
+    },
+    "modules": [
+        {
+            "description": "Made By:Dewdimpple\nYoutube:Dewdimpple Aoi Ch.\nTwitter:@Dewdimpple",
+            "type": "resources",
+            "uuid": "c69dcf36-723d-4d67-aae7-537073c0a339",
+            "version": [0,0,0]
+        }
+    ]
+}

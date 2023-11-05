@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.temp": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    },
+	"controller.render.dissolve_death_temp1": {
+      "geometry": "Geometry.default",
+      "materials": [
+        { "*": "Material.dissolve_0" }
+      ],
+      "textures": [ "Texture.dissolve_texture" ],
+      "part_visibility": [ { "*": "query.property('temp:temp_dissolve_tick') > 1.0" } ],
+      "overlay_color" : {
+        "r": "this",
+        "g": "this",
+        "b": "this",
+        "a": "v.dissolve_alpha"
+      }
+    },
+    "controller.render.dissolve_death_temp2": {
+      "geometry": "Geometry.default",
+      "materials": [
+        { "*": "Material.dissolve_1" }
+      ],
+      "textures": [ "Texture.default" ]
+    }
+  }
+}

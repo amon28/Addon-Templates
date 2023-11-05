@@ -1,0 +1,46 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "template:template",
+      "materials": { 
+		"default": "bat",
+        "dissolve_0": "entity_dissolve_layer0.skinning",
+        "dissolve_1": "entity_dissolve_layer1.skinning"
+	  },
+      "textures": {
+        "default": "textures/entity/bat",
+		"dissolve_texture": "textures/entity/dissolve"
+      },
+      "geometry": {
+        "default": "geometry.bat"
+      },
+      "scripts": {
+        "scale": "1",
+		"animate":[
+			"move"
+		],
+		"pre_animation":[
+			//Change 60 value to change the duration of dissolve
+			//To get the recommended duration simply multiply by 2 your max dissolve tick. For example my max dissolve tick is 30 I multiplied by 2 to get 60.
+			//You can lessen this to make the dissolve faster or add to make it slower. Adding too much will not make the entity fully dissolve
+			"v.dissolve_alpha = 1 - (query.property('temp:temp_dissolve_tick')/60);"
+		]
+      },
+      "animations": {
+		"move": "controller.animation.bat.move",
+        "resting": "animation.bat.resting",
+        "flying": "animation.bat.flying"
+      },
+      "render_controllers": [ 
+		{"controller.render.temp": "query.property('temp:temp_dissolve_tick') <= 1" },
+		{ "controller.render.dissolve_death_temp1": "query.property('temp:temp_dissolve_tick') >= 0" },
+        { "controller.render.dissolve_death_temp2": "query.property('temp:temp_dissolve_tick') >= 0" }
+	  ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 18
+      }
+    }
+  }
+}
