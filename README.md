@@ -10,6 +10,7 @@ Tools
 
 # Gametest
 This is a server side scripts use for testing minecraft mechanics and for creating mechanics.  
-- **Microsoft Docs** https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft  
+- **Microsoft Docs** https://docs.microsoft.com/en-us/minecraft/creator/scriptapi/mojang-minecraft/mojang-minecraft
+- **Script API References** https://jaylydev.github.io/scriptapi-docs/
 
 
