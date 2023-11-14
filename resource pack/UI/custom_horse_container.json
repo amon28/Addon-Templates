@@ -354,8 +354,11 @@
     "variables": [
 	//if entity is named §rtest, show custom panel
 	  {
-        "requires": "($container_title = '§rtest')",
-        "$root_panel": "horse.custom_horse_panel"
+        "requires": "($container_title = 'test')",
+		"$screen_content": "horse.custom_horse_panel",
+        "$root_panel": "horse.custom_horse_panel",
+        "$new_container_title": "test container",
+        "$container_size": 54
       },
       {
 		"requires": "$desktop_screen",

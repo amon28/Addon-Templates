@@ -128,6 +128,8 @@
 	//If the entity is named test, show my custom container
       {
         "requires": "($container_title = 'test')",
+		"$use_custom_pocket_toast": true,
+		"$screen_content": "chest.my_custom_container_root_panel",
         "$root_panel": "chest.my_custom_container_root_panel",
         "$new_container_title": "test container",
         "$container_size": 54
@@ -140,6 +142,7 @@
       },
       {
         "requires": "$pocket_screen",
+		"$use_custom_pocket_toast": true,
         "$container_title": "$new_container_title",
         "$screen_content": "pocket_containers.panel"
       }
