@@ -1,0 +1,125 @@
+{
+  "namespace": "hud",
+  
+  //////////////////////////////////////
+  // IMAGES
+  //////////////////////////////////////
+  "freeze_image": {
+	"type": "image",
+	"layer": 21,
+    "texture": "textures/ui/frozen_effect_screen",
+    "size": ["100%", "100%"]
+  },
+  
+  //////////////////////////////////////
+  // UI ANIMATION
+  //////////////////////////////////////
+  "logo_anim_alpha_in": {
+    "anim_type": "alpha",
+    "duration": 2,
+    "from": 0,
+    "to": 1,
+    "next": "@hud.logo_anim_alpha_stay"
+  },
+  "logo_anim_alpha_stay": {
+    "anim_type": "wait",
+    "duration": 4,
+    "next": "@hud.logo_anim_alpha_out"
+  },
+  "logo_anim_alpha_out": {
+    "anim_type": "alpha",
+    "easing": "in_expo",
+    "duration": 2,
+    "from": 1,
+    "to": 0
+  },
+  
+  "freeze_start_anim":{
+	"anim_type": "wait",
+    "duration": 0,
+    "next": "@hud.logo_anim_alpha_in"
+  },
+  
+  //////////////////////////////////////
+  // LOGOS TO DISPLAY
+  //////////////////////////////////////
+  "show_logo_sequence": {
+	"type": "panel",
+	"controls":[
+		{
+			"show_freeze@hud.freeze_image": {
+			  "size": ["100%", "100%"],
+			  "anims": ["@hud.freeze_start_anim"]		  
+			}
+		}
+	]
+  },
+  
+  //////////////////////////////////////
+  // HIDE TITLE TEXT WHEN SHOWING LOGO
+  //////////////////////////////////////
+  "hud_title_text/title_frame/title": {
+    "modifications": [
+      {
+        "array_name": "bindings",
+        "operation": "insert_back",
+        "value": {
+          "binding_type": "view",
+          "source_property_name": "(not (#text = 'freeze_show'))",
+          "target_property_name": "#visible"
+        }
+      }
+    ]
+  },
+  
+  //////////////////////////////////////
+  // CONDITIONS TO SHOW LOGO WITH TITLE
+  //////////////////////////////////////
+  "title_conditional": {
+    "type": "panel",
+    "layer": 21,
+    "controls": [
+      {
+        "@hud.show_logo_sequence": {}
+      }
+    ],
+	  "bindings": [
+		  {
+			"binding_name": "#hud_title_text_string"
+		  },
+		  {
+			"binding_type": "view",
+			"source_property_name": "(#hud_title_text_string = 'freeze_show')",
+			"target_property_name": "#visible"
+		  }
+	  ]
+  },
+  
+  //////////////////////////////////////
+  // UI FACTORY FOR TITLE AND ACTIONBAR
+  //////////////////////////////////////
+  "title_factory": {
+    "type": "panel",
+    "factory": {
+      "name": "hud_title_text_factory",
+      "control_ids": {
+        "hud_title_text": "main_conditional@hud.title_conditional"
+      }
+    }
+  },
+  
+  //////////////////////////////////////
+  // ROOT PANEL FOR HUD SCREEN
+  //////////////////////////////////////
+   "root_panel": {
+    "modifications": [
+	  {
+        "array_name": "controls",
+        "operation": "insert_front",
+        "value": {
+          "show_title_logo@hud.title_factory": {}
+        }
+      }
+    ]
+  }
+}

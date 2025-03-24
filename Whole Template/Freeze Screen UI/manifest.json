@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Made by: Dewdimpple\nTwitter: Dewdimpple",
+        "name": "Freeze UI Screen",
+        "uuid": "99c5a9a8-3093-462a-9c36-dbb052165822",
+        "version": [0, 0, 1],
+        "min_engine_version": [ 1, 20, 0 ]
+    },
+    "modules": [
+        {
+            "description": "Example vanilla resource pack",
+            "type": "resources",
+            "uuid": "673f6949-71be-44b6-b326-398005028819",
+            "version": [0, 0, 1]
+        }
+    ]
+}
